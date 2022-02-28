@@ -15,12 +15,13 @@ setup(
     zip_safe=True,
     maintainer='seniorKullken',
     maintainer_email='stefan.kull@gmail.com',
-    description='ROS2 Python Joystick controller',
+    description='ROS2 LCD-display controller',
     license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "pet_lcd_node=pet_ros2_lcd_pkg.pet_lcd_node:main"
+            "pet_lcd_node=pet_ros2_lcd_pkg.pet_lcd_node:main",
+            "display_publish_node=pet_ros2_lcd_pkg.pet_displayPublisher_node:main",
         ],
     },
 )
