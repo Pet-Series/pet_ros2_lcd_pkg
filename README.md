@@ -1,6 +1,7 @@
 # ROS2 Python LCD-controller
-ROS2 node that publish text on a LCD display. 
-Supported displays LCD1604 + LCD2004 displays
+ROS2 node that publish text on a LCD display. <br>
+Supported displays LCD1604 + LCD2004 displays. <br>
+For a ROS1 version - Please see https://github.com/Pet-Series/ros_lcd_driver.git 
 
 **Input:** 3x topics <code>lcd_display/row1</code>...<code>lcd_display/row1</code><br>
 **Output:** i2c connected display using PC8574A-interface to LCD1602 (16chr * 2 rows) or LCD2004 (20char * 4rows)
@@ -65,7 +66,7 @@ Dowload ROS2 package by using 'git clone'
 ```
 ~$ mkdir -p ~/ws_ros2/src
 ~$ cd ~/ws_ros2/src
-~/ws_ros2/src$ git clone https://github.com/Pet-Series/ros_lcd_driver.git
+~/ws_ros2/src$ git clone https://github.com/Pet-Series/pet_ros2_lcd_pkg.git
 ~/ws_ros2/src$ cd ..
 ~/ws_ros2$ colcon build --symlink-install
 ~/ws_ros2$ source /opt/ros/galactic/setup.bash
