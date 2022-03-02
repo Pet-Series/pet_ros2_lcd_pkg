@@ -46,9 +46,9 @@ from time import *
 
 # Include I2C-port and Display hardware stuff (like ./lib/lcddriver.py + ./lib/i2c_lib.py)
 from smbus2 import SMBus
-sys.path.append("./lib/")
+sys.path.append("./lib/")  # TODO: PWD-sensitiv for the moment... import lcddriver.py + i2c_lib.py
 import lcddriver
-import i2c_lib  # This include file contains I2C-address
+import i2c_lib  # TODO: This include file contains I2C-address
 
 # TODO: Add the following "behaviours to class "LcdDisplayNode"
 # lcd.lcd_clear()
@@ -56,8 +56,7 @@ import i2c_lib  # This include file contains I2C-address
 # lcd.lcd_backlight("OFF)
 
 class LcdDisplayNode(Node): 
-    
-    
+     
     def __init__(self):
         super().__init__("lcd_display_node")
         
@@ -83,7 +82,7 @@ class LcdDisplayNode(Node):
         exit = False
         # Check we can open/contact the I2C-controller on the Display.
         try:
-            self.lcd.lcd_display_string( "LCD-display started", 4)
+            self.lcd.lcd_display_string( "lcd_display_node initiating", 4)
 
             # Some basic information on the console
             self.get_logger().info("lcd_display_node has started")
@@ -91,7 +90,7 @@ class LcdDisplayNode(Node):
 
         except:
             # Note: a permission error can be fixed with a "sudo chmod a+rw /dev/i2c-1"
-            self.get_logger().error("lcd_display_node initialization:"  + str(sys.exc_info()[1]) )
+            self.get_logger().error("lcd_display_node canceled:"  + str(sys.exc_info()[1]) )
             self.exit = True
         
 
