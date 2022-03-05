@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('lib/' + package_name + '/util', [ package_name + '/util/i2c_lib.py',
+                                            package_name + '/util/lcddriver.py'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,7 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "pet_lcd_node=pet_ros2_lcd_pkg.pet_lcd_node:main",
+            "pet_lcd_driver_node=pet_ros2_lcd_pkg.pet_lcd_driver_node:main",
             "display_publish_node=pet_ros2_lcd_pkg.pet_displayPublisher_node:main",
         ],
     },
