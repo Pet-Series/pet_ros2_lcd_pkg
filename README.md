@@ -25,7 +25,7 @@
   </tr>
 </table>
 
-# ROS2 Package/Module Overview
+## ROS2 Package/Module Overview
 **Input:** 4x topics <code>lcd_display/row1</code>...<code>lcd_display/row1</code><br />
 **Input:** Parameter 'lcd_i2c_address' with default address <0x3F>.
 **Output:** i2c connected display using a PC8574A-interface
@@ -37,7 +37,7 @@
   </tr>
 </table>
 
-# ROS2 Package/Module Behaviour
+## ROS2 Package/Module Behaviour
 1. Once: Read ROS2 Parameters for I²C-address.
 1. Once: Power up initialization. Update LCD row1='initialization'
 1. Repeatedly: Subscripe on topics
@@ -45,14 +45,15 @@
 ```mermaid
 graph TD
     S(Start) --> A
-    A(Read Parameters) -->|I²C-address| B
+    A(Read Parameters) -->|I2C-address| B
     B(far:fa-lightbulb Power up initialization) --> C
     C(Wait for topic) --> |String| D
     D(Update LCD-display) --> C
     E(ROS2 topic input) --> C
 ```
 
-# Prerequisite: Hardware & Wiring
+# Prerequisites
+## Prerequisite: Hardware & Wiring
 * Single Board Computer(SBC): Raspberry Pi 3/4
 * LCD-display LCD1620 or LCD2004 with a PC8574-I²C-interface (default I2C adr.= <code>0x3F</code>)
 <ul><blockquote>🌐Google tips to find/order display on eBay/AliExpress/Wish/Amazon/...  <br />
@@ -70,7 +71,7 @@ graph TD
   </tr>
 </table>
 
-# Prerequisite: Software - Raspberry Pi 3/4 Ubuntu
+## Prerequisite: Software - Raspberry Pi 3/4 Ubuntu
 Prepared by adding additional, I²C communication, Linux-software-packages. That allow Python3 script to access I/O-ports.<br />
 `Ubuntu Shell`
 ```
@@ -91,7 +92,7 @@ Prepared by adding additional, I²C communication, Linux-software-packages. That
 $ sudo chmod a+rw /dev/i2c-1
 ```
 
-## Dowload and install this ROS2 packages
+## Prerequisite: Dowload and install this ROS2 packages
 Create a ROS2 workspace (in my exampel '~/ws_ros2/') \
 Dowload ROS2 package by using 'git clone'
 <ul><blockquote>🤔There is probably better tutorials how to do this...<br />
@@ -109,6 +110,7 @@ Dowload ROS2 package by using 'git clone'
 ~/ws_ros2$ source ./install/setup.bash
 ```
 
+# HowTo guide
 ## ROS2 Launch sequence
 `Ubuntu Shell(Terminal#1)`
 ```
@@ -128,7 +130,7 @@ $ ros2 run pet_ros2_lcd_pkg pet_lcd_driver_node
   </tr>
 </table>
 
-# ROS2 Test1 - Via command line $ ros2 topic pub...
+## ROS2 Test1 - Via command line $ ros2 topic pub...
 Manually update each row on display with the following commands.<br />
 `Ubuntu Shell(Terminal#2)`
  ```
@@ -145,7 +147,7 @@ $ ros2 topic pub /lcd_display/row4 std_msgs/msg/String "data: Finally row 4" -1
   </tr>
 </table>
 
-# ROS2 Test2 - Via ro topic pub 
+## ROS2 Test2 - Via automatic ROS2-topic publisher example node.
 Launch the included "LCD-spammer" :-)<br />
 `Ubuntu Shell(Terminal#2)`
  ```
