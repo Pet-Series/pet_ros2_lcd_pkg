@@ -119,7 +119,11 @@ $ ros2 run pet_ros2_lcd_pkg pet_lcd_driver_node
 <table>
   <tr>
     <td>
-      <img src="doc/1-initialization-output.jpeg" width="730px">
+      <img src="doc/1-initialization-output.jpeg" width="400px">
+    </td>
+    <td style="vertical-align:top">
+      ROS2 RQT Node Graph<br/>
+      <img src="doc/rqt_node_graph-lcd_driver_node.png" width="450px">
     </td>
   </tr>
 </table>
@@ -136,7 +140,7 @@ $ ros2 topic pub /lcd_display/row4 std_msgs/msg/String "data: Finally row 4" -1
  <table>
   <tr>
     <td>
-      <img src="doc/2-test-output.jpeg" width="730px">
+      <img src="doc/2-test-output.jpeg" width="400px">
     </td>
   </tr>
 </table>
@@ -150,7 +154,11 @@ Launch the included "LCD-spammer" :-)<br />
  <table>
   <tr>
     <td>
-      <img src="doc/3-test-output.jpeg" width="730px">
+      <img src="doc/3-test-output.jpeg" width="400px">
+    </td>
+    <td style="vertical-align:top">
+      ROS2 RQT Node Graph<br/>
+      <img src="doc/rqt_node_graph-lcd_display-topics.png" width="650px">
     </td>
   </tr>
 </table>
