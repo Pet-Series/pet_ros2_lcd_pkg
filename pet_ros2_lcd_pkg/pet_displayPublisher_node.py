@@ -1,6 +1,8 @@
-#!/usr/bin/env python3'
+#!/usr/bin/env python3
 # coding = utf-8
 ########################################################################################
+## (c) https://github.com/Pet-Series
+##     https://github.com/Pet-Series/pet_ros2_lcd_pkg
 ##
 ## Maintainer: stefan.kull@gmail.com
 ##
@@ -9,7 +11,6 @@
 ##
 ## Lunch sequence
 ## 1) Start the display subscriber...
-##    $ cd ~/ws_ros2/src/pet_ros2_lcd_pkg/pet_ros2_lcd_pkg 
 ##    $ ros2 run pet_ros2_lcd_pkg pet_lcd_node
 ##
 ## 2) Start this message spam-generator
@@ -25,6 +26,7 @@ from rcl_interfaces.msg import ParameterDescriptor
 #  Include Linux/Ubuntu stuff...
 import sys
 import signal
+from time import sleep
 
 from std_msgs.msg import String
 from time import *
@@ -67,8 +69,11 @@ class displayPublishNode(Node):
         self.i += 1
 
 def main(args=None):
+    """ 
+    ROS2 entrypoint. Se also setup.py
+    """ 
     rclpy.init(args=args) 
-    display_publish_node = displayPublishNode( 2 )
+    display_publish_node = displayPublishNode( 0.5 )  # 0.5 Hz
 
     try:
         rclpy.spin(display_publish_node)
