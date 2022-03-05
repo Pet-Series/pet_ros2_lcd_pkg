@@ -45,7 +45,7 @@
 ```mermaid
 graph TD
     S(Start) --> A
-    A(Read Parameters) -->|I²C-address| B
+    A(Read Parameters) -->|I2C-address| B
     B(far:fa-lightbulb Power up initialization) --> C
     C(Wait for topic) --> |String| D
     D(Update LCD-display) --> C
